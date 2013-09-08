@@ -4,7 +4,6 @@
 	
 	// define API for Jello
 	window.Vector2 = Vector2;
-	window.VectorTools = VectorTools;
 	window.World = World;
 	window.DistanceJoint = DistanceJoint;
 	window.InterpolationJoint = InterpolationJoint;
@@ -25,7 +24,8 @@
 		Material: Material,
 		ParticleCannon: ParticleCannon,
 		Ray: Ray,
-
+		VectorTools: VectorTools,
+		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory
 	};
