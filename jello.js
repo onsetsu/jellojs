@@ -3059,7 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.ContactManager = ContactManager;
 	window.InternalSpring = InternalSpring;
 	window.CollisionCallback = CollisionCallback;
 	window.Material = Material;
@@ -3090,6 +3089,7 @@ QuadTree = function() {
 		//BodyCollisionInfo: BodyCollisionInfo,
 		ClosedShape: ClosedShape,
 		//Contact: Contact,
+		//ContactManager: ContactManager,
 		
 		InternalSpring: InternalSpring,
 		BodyBluePrint: BodyBluePrint,
