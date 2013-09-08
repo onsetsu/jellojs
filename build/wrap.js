@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.PointMass = PointMass;
 	window.QuadTree = QuadTree;
 	window.Queue = Queue;
 	window.SingleIntersection = SingleIntersection;
@@ -31,6 +30,7 @@
 		CollisionCallback: CollisionCallback,
 		Material: Material,
 		ParticleCannon: ParticleCannon,
+		PointMass: PointMass,
 		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory

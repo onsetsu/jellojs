@@ -2751,7 +2751,7 @@ Particle.prototype.accumulateInternalForces = function() {
 
 Particle.prototype.integrate = function(timePassed) {
 };
-ParticleCannon = function() {
+var ParticleCannon = function() {
 	this.store = {};
 	this.store.bluePrint = BodyFactory.createBluePrint();
 };
@@ -3059,7 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.PointMass = PointMass;
 	window.QuadTree = QuadTree;
 	window.Queue = Queue;
 	window.SingleIntersection = SingleIntersection;
@@ -3087,6 +3086,7 @@ QuadTree = function() {
 		CollisionCallback: CollisionCallback,
 		Material: Material,
 		ParticleCannon: ParticleCannon,
+		PointMass: PointMass,
 		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory
