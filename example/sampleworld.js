@@ -32,7 +32,7 @@ var initWorld = function() {
 	var world = new World();
 
 	// GROUND SHAPE
-	var groundShape = new ClosedShape()
+	var groundShape = new Jello.ClosedShape()
 		.begin()
 		.addVertex(new Vector2(-1,  1))
 		.addVertex(new Vector2( 1,  1))
@@ -53,7 +53,7 @@ var initWorld = function() {
 	
 	// BODIES
 
-	var shape = new ClosedShape()
+	var shape = new Jello.ClosedShape()
 		.begin()
 		.addVertex(new Vector2(-1, -1))
 		.addVertex(new Vector2(-1,  1))
@@ -87,7 +87,7 @@ var initWorld = function() {
 	
 	// preasure balls:
 	
-	var ball = new ClosedShape();
+	var ball = new Jello.ClosedShape();
 	ball.begin();
 	for (var i = 0; i < 360; i += 20) {
 		ball.addVertex(
@@ -121,7 +121,7 @@ var initWorld = function() {
 
 	// I:
 	
-	var shape = new ClosedShape()
+	var shape = new Jello.ClosedShape()
 		.begin()
 		.addVertex(new Vector2(-1.5, 2.0))
 		.addVertex(new Vector2(-0.5, 2.0))
