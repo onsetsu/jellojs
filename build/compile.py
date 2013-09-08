@@ -1,3 +1,5 @@
+INPUT_DIRECTORY = "../physics/"
+
 INPUT_FILES = []
 
 INPUT_FILES.append("jellyphysics.js")
@@ -43,7 +45,8 @@ INPUT_FILES.append("quadtree.js")
 WRAPPER_FILE = "wrap.js"
 REPLACE_TEXT = "// CODE HERE"
 
-TARGET_FILE = "physics.js"
+TARGET_DIRECTORY = "../"
+TARGET_FILE = "jello.js"
 
 OUTPUT = ""
 
@@ -52,10 +55,10 @@ def main():
         with open(WRAPPER_FILE, "r") as wrapper:
                 OUTPUT += wrapper.read()
         for inputFile in INPUT_FILES:
-                with open(inputFile, "r") as input:
+                with open(INPUT_DIRECTORY + inputFile, "r") as input:
                         OUTPUT = OUTPUT.replace(REPLACE_TEXT, input.read() + REPLACE_TEXT)
         OUTPUT = OUTPUT.replace(REPLACE_TEXT, "")
-        with open(TARGET_FILE, "w") as target:
+        with open(TARGET_DIRECTORY + TARGET_FILE, "w") as target:
                 target.write(OUTPUT)
 
 if __name__ == "__main__":
