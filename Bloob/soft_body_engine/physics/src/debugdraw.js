@@ -54,7 +54,7 @@ DebugDraw.prototype.drawBody = function(body) {
 	this.drawAABB(body.mAABB);
 	//this.drawBaseShape(body.mBaseShape);
 	this.drawGlobalShape(body.mGlobalShape);
-	this.drawPointMasses(body.mPointMasses);
+	this.drawPointMasses(body.pointMasses);
 	this.drawMiddlePoint(body);
 };
 
@@ -146,7 +146,7 @@ DebugDraw.prototype.drawCollision = function(collisionInfo) {
 	this.context.beginPath();
 
 	var hitPoint = collisionInfo.hitPt;
-	var penetrationTill = collisionInfo.bodyA.mPointMasses[collisionInfo.bodyApm].Position
+	var penetrationTill = collisionInfo.bodyA.pointMasses[collisionInfo.bodyApm].Position
 	
 	this.drawPlus(hitPoint);
 	this.drawPolyline([hitPoint, penetrationTill])

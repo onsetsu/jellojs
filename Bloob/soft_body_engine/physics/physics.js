@@ -105,8 +105,8 @@ var init = function() {
 	for (var i = 0; i < 360; i += 20) {
 		ball.addVertex(
 			new Vector2(
-				Math.cos(-i * (PI / 180)),
-				Math.sin(-i * (PI / 180))
+				Math.cos(-i * (Math.PI / 180)),
+				Math.sin(-i * (Math.PI / 180))
 			)
 		);
 	}
