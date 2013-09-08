@@ -1,35 +1,22 @@
-var debugDraw;
-var theWorld;
-var theDebugDraw;
-
 $("body").ready(function() {
-	
 	// prepare stats
 	var stats = new Stats();
 	$("body").prepend(stats.domElement);
 
-	var world = init();
-	theWorld = world;
-	debugDraw = new DebugDraw(world);
-	debugDraw.draw();
+	var world = initWorld();
+	var debugDraw = new DebugDraw(world);
 	
 	var counter = 0;
-	var loop = new Scarlet.Loop();
-	var id = loop.start(function(timePassed) {
-		stats.update();
-		
-		/*if(counter++ < 10) {
-			return;
-		};
-		counter = 0;
-*/
-		world.update(timePassed);
+	
+	function update() {
+	    requestAnimationFrame(update);
+
+	    stats.update();
+		world.update(1/60);
 		debugDraw.draw();
-		for(var i in world.mBodies) {
-			var body = world.mBodies[i];
-			body.addGlobalForce(new Vector2(0.0,0.0).add(body.mDerivedPos), new Vector2(0, -9.81));
-		}
-	});
+	};
+	
+	update();
 });
 
 var Utils = {
@@ -41,17 +28,17 @@ var Utils = {
 	}
 };
 
-var init = function() {
+var initWorld = function() {
 	var world = new World();
 
 	// GROUND SHAPE
-	var groundShape = new ClosedShape();
-	groundShape.begin();
-	groundShape.addVertex(new Vector2(-18,  3));
-	groundShape.addVertex(new Vector2( 18,  3));
-	groundShape.addVertex(new Vector2( 18, -3));
-	groundShape.addVertex(new Vector2(-18, -3));
-	groundShape.finish();
+	var groundShape = new ClosedShape()
+		.begin()
+		.addVertex(new Vector2(-1,  1))
+		.addVertex(new Vector2( 1,  1))
+		.addVertex(new Vector2( 1, -1))
+		.addVertex(new Vector2(-1, -1))
+		.finish();
 	
 	var groundBody = new Body(
 		world,
@@ -59,20 +46,20 @@ var init = function() {
 		Utils.fillArray(0/*Number.POSITIVE_INFINITY*/, groundShape.getVertices().length),
 		new Vector2(0, -15), // translate
 		0, // rotate
-		Vector2.One.copy(), // scale
+		new Vector2(18, 3), // scale
 		false
 	);
 	groundBody.aName = "ground";
 	
 	// BODIES
 
-	var shape = new ClosedShape();
-	shape.begin();
-	shape.addVertex(new Vector2(-1, -1));
-	shape.addVertex(new Vector2(-1,  1));
-	shape.addVertex(new Vector2( 1,  1));
-	shape.addVertex(new Vector2( 1, -1));
-	shape.finish();
+	var shape = new ClosedShape()
+		.begin()
+		.addVertex(new Vector2(-1, -1))
+		.addVertex(new Vector2(-1,  1))
+		.addVertex(new Vector2( 1,  1))
+		.addVertex(new Vector2( 1, -1))
+		.finish();
 	
 	for(var i = 0; i < 4; i++) {
 		for(var j = 0; j < 4; j++) {
@@ -134,25 +121,25 @@ var init = function() {
 
 	// I:
 	
-	var shape = new ClosedShape();
-	shape.begin();
-	shape.addVertex(new Vector2(-1.5, 2.0));
-	shape.addVertex(new Vector2(-0.5, 2.0));
-	shape.addVertex(new Vector2(0.5, 2.0));
-	shape.addVertex(new Vector2(1.5, 2.0));
-	shape.addVertex(new Vector2(1.5, 1.0));
-	shape.addVertex(new Vector2(0.5, 1.0));
-	shape.addVertex(new Vector2(0.5, -1.0));
-	shape.addVertex(new Vector2(1.5, -1.0));
-	shape.addVertex(new Vector2(1.5, -2.0));
-	shape.addVertex(new Vector2(0.5, -2.0));
-	shape.addVertex(new Vector2(-0.5, -2.0));
-	shape.addVertex(new Vector2(-1.5, -2.0));
-	shape.addVertex(new Vector2(-1.5, -1.0));
-	shape.addVertex(new Vector2(-0.5, -1.0));
-	shape.addVertex(new Vector2(-0.5, 1.0));
-	shape.addVertex(new Vector2(-1.5, 1.0));
-	shape.finish();
+	var shape = new ClosedShape()
+		.begin()
+		.addVertex(new Vector2(-1.5, 2.0))
+		.addVertex(new Vector2(-0.5, 2.0))
+		.addVertex(new Vector2(0.5, 2.0))
+		.addVertex(new Vector2(1.5, 2.0))
+		.addVertex(new Vector2(1.5, 1.0))
+		.addVertex(new Vector2(0.5, 1.0))
+		.addVertex(new Vector2(0.5, -1.0))
+		.addVertex(new Vector2(1.5, -1.0))
+		.addVertex(new Vector2(1.5, -2.0))
+		.addVertex(new Vector2(0.5, -2.0))
+		.addVertex(new Vector2(-0.5, -2.0))
+		.addVertex(new Vector2(-1.5, -2.0))
+		.addVertex(new Vector2(-1.5, -1.0))
+		.addVertex(new Vector2(-0.5, -1.0))
+		.addVertex(new Vector2(-0.5, 1.0))
+		.addVertex(new Vector2(-1.5, 1.0))
+		.finish();
 	
 	for (i = -5; i <= 25; i+=15) {
 
