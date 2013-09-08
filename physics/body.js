@@ -47,7 +47,7 @@ Body.prototype._setDefaultValues = function() {
 
 	this.mIgnoreMe = false;
 
-	this.mBitMaskY = new Jello.Bitmask();
+	this.mBitMaskY = new Bitmask();
 
 	this.externalForces = []; // array of force callbacks
 	

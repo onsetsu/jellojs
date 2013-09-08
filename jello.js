@@ -42,23 +42,23 @@ Queue.prototype.fire = function() {
 	// reset event
 	this.__events__.length = 0;
 };
-Jello.Bitmask = function() {
+Bitmask = function() {
 	this.clear();
 };
 
-Jello.Bitmask.prototype.clear = function() {
+Bitmask.prototype.clear = function() {
 	this.mask = 0x00;
 };
 
-Jello.Bitmask.prototype.setOn = function(bit) {
+Bitmask.prototype.setOn = function(bit) {
 	this.mask |= (0x01 << (bit));
 };
 
-Jello.Bitmask.prototype.setOff = function(bit) {
+Bitmask.prototype.setOff = function(bit) {
 	this.mask &= ~(0x01 << (bit));
 };
 
-Jello.Bitmask.prototype.getBit = function(bit) {
+Bitmask.prototype.getBit = function(bit) {
 	return ((this.mask & (0x01 << (bit))) != 0);
 };
 Jello.InternalSpring = function(pmA, pmB, d, k, damp) {
@@ -590,7 +590,7 @@ Body.prototype._setDefaultValues = function() {
 
 	this.mIgnoreMe = false;
 
-	this.mBitMaskY = new Jello.Bitmask();
+	this.mBitMaskY = new Bitmask();
 
 	this.externalForces = []; // array of force callbacks
 	
@@ -3065,7 +3065,7 @@ QuadTree = function() {
 	// define API for Jello
 	window.AABB = AABB;
 	window.Jello = {};
-	window.Jello.BitMask = Jello.Bitmask;
+	window.BitMask = Bitmask;
 	window.Body = Body;
 	window.Bloob = window.Bloob || {};
 	window.Bloob.BodyBluePrint = Bloob.BodyBluePrint;

@@ -7,7 +7,7 @@
 	// define API for Jello
 	window.AABB = AABB;
 	window.Jello = {};
-	window.Jello.BitMask = Jello.Bitmask;
+	window.BitMask = Bitmask;
 	window.Body = Body;
 	window.Bloob = window.Bloob || {};
 	window.Bloob.BodyBluePrint = Bloob.BodyBluePrint;
