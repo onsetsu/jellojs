@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.SpringBuilder = SpringBuilder;
 	window.Vector2 = Vector2;
 	window.VectorTools = VectorTools;
 	window.World = World;

@@ -2406,7 +2406,7 @@ var SingleIntersection = function(pos, body, edgeNumber) {
 /*
  * RayIntersectionObject
  */
-RayIntersectionObject = function(pos, body, edgeNumber) {
+var RayIntersectionObject = function(pos, body, edgeNumber) {
 	this.intersections = [];
 };
 
@@ -2445,7 +2445,7 @@ PrivateIntersectionObject.prototype.NumberOfSolutions = function() { // returns 
 /*
  * Ray
  */
-Ray = function(world, origin, direction) {
+var Ray = function(world, origin, direction) {
 	this.world = world;
 	this.origin = origin;
 	this.direction = direction;
@@ -3059,7 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.SpringBuilder = SpringBuilder;
 	window.Vector2 = Vector2;
 	window.VectorTools = VectorTools;
 	window.World = World;
@@ -3082,6 +3081,7 @@ QuadTree = function() {
 		Material: Material,
 		ParticleCannon: ParticleCannon,
 		Ray: Ray,
+		SpringBuilder: SpringBuilder,
 
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory
