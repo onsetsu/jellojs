@@ -1,10 +1,10 @@
-Contact = function(bodyA, bodyB) {
+var Contact = function(bodyA, bodyB) {
 	this.bodyA = bodyA;
 	this.bodyB = bodyB;
 	this.isNew = false;
 };
 
-ContactManager = function() {
+var ContactManager = function() {
 	this.contacts = {};
 };
 

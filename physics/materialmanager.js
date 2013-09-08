@@ -4,7 +4,7 @@ CollisionCallback.prototype.collisionFilter = function(bA, bodyApm, bodyB, bodyB
 	return true;
 };
 
-Material = {
+var Material = {
 	"Default": 0,
 	"Test1": 1,
 	"Test2": 2,
@@ -23,7 +23,7 @@ var MaterialPair = function() {
 	this.Callback = new CollisionCallback();
 };
 
-MaterialManager = function() {
+var MaterialManager = function() {
 	this.mMaterialPairs = []; // MaterialPair*	
 	this.mDefaultMatPair = new MaterialPair(); // MaterialPair
 	this.mMaterialCount = 0; // int

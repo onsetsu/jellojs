@@ -1,4 +1,4 @@
-Bitmask = function() {
+var Bitmask = function() {
 	this.clear();
 };
 

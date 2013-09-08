@@ -1,4 +1,4 @@
-BodyBuilder = {};
+var BodyBuilder = {};
 
 BodyBuilder.build = function(bodyDefinition) {
 	var newBody = new bodyDefinition.targetClass(

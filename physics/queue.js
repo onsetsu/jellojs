@@ -3,7 +3,7 @@ var QueueItem = function(func, args) {
 	this.args = args;
 };
 
-Queue = function(obj) {
+var Queue = function(obj) {
 
 	this.__events__ = [];
 	this.object = obj;

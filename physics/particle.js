@@ -1,5 +1,4 @@
-Particle = function() {
-};
+var Particle = function() {};
 
 Particle.prototype.derivePositionAndAngle = function(timePassed) {
 };

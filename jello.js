@@ -5,7 +5,7 @@
 	this.args = args;
 };
 
-Queue = function(obj) {
+var Queue = function(obj) {
 
 	this.__events__ = [];
 	this.object = obj;
@@ -40,7 +40,7 @@ Queue.prototype.fire = function() {
 	// reset event
 	this.__events__.length = 0;
 };
-Bitmask = function() {
+var Bitmask = function() {
 	this.clear();
 };
 
@@ -59,7 +59,7 @@ Bitmask.prototype.setOff = function(bit) {
 Bitmask.prototype.getBit = function(bit) {
 	return ((this.mask & (0x01 << (bit))) != 0);
 };
-InternalSpring = function(pmA, pmB, d, k, damp) {
+var InternalSpring = function(pmA, pmB, d, k, damp) {
 	this.pointMassA = pmA || 0;
 	this.pointMassB = pmB || 0;
 	this.springD = d || 0.0;
@@ -1189,7 +1189,7 @@ CollisionCallback.prototype.collisionFilter = function(bA, bodyApm, bodyB, bodyB
 	return true;
 };
 
-Material = {
+var Material = {
 	"Default": 0,
 	"Test1": 1,
 	"Test2": 2,
@@ -1208,7 +1208,7 @@ var MaterialPair = function() {
 	this.Callback = new CollisionCallback();
 };
 
-MaterialManager = function() {
+var MaterialManager = function() {
 	this.mMaterialPairs = []; // MaterialPair*	
 	this.mDefaultMatPair = new MaterialPair(); // MaterialPair
 	this.mMaterialCount = 0; // int
@@ -2619,7 +2619,7 @@ Ray.prototype.debugDrawReflection = function(debugDraw) {
 		reflection.position.add(reflection.direction.mulFloat(1000))
 	]);
 };
-BodyBuilder = {};
+var BodyBuilder = {};
 
 BodyBuilder.build = function(bodyDefinition) {
 	var newBody = new bodyDefinition.targetClass(
@@ -2641,7 +2641,7 @@ BodyBuilder.build = function(bodyDefinition) {
 		newBody.addInternalSpring.apply(newBody, bodyDefinition.internalSprings[i]);
 
 	return newBody;
-};BodyBluePrint = function(targetClass) {
+};var BodyBluePrint = function(targetClass) {
 	this.store = {};
 	this.store.targetClass = targetClass;
 	this.store.shape = new ClosedShape()
@@ -2731,13 +2731,12 @@ BodyBluePrint.prototype.build = function() {
 	// TODO: define getter and use blueprint as parameter
 	return BodyBuilder.build(this.store);
 };
-BodyFactory = function() {};
+var BodyFactory = function() {};
 
 BodyFactory.createBluePrint = function(targetClass) {
 	return new BodyBluePrint(targetClass);
 };
-Particle = function() {
-};
+var Particle = function() {};
 
 Particle.prototype.derivePositionAndAngle = function(timePassed) {
 };
@@ -2976,13 +2975,13 @@ SpringBuilder.prototype.getNClosestPointMasses = function(position, n) {
 	//var sortedPointMassIndices = _.pluck(pointMasses, "index");
 	return pointMasses;
 };
-Contact = function(bodyA, bodyB) {
+var Contact = function(bodyA, bodyB) {
 	this.bodyA = bodyA;
 	this.bodyB = bodyB;
 	this.isNew = false;
 };
 
-ContactManager = function() {
+var ContactManager = function() {
 	this.contacts = {};
 };
 
@@ -3055,8 +3054,8 @@ ContactManager.prototype.addContact = function(bodyA, bodyB) {
 	};
 	return this.contacts[bodyA.id][bodyB.id];
 };
-QuadTree = function() {
-};
+var QuadTree = function() {};
+
 	
 	// define API for Jello
 	window.Jello = {

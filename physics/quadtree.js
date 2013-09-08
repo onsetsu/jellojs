@@ -1,2 +1,1 @@
-QuadTree = function() {
-};
+var QuadTree = function() {};

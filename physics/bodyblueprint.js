@@ -1,4 +1,4 @@
-BodyBluePrint = function(targetClass) {
+var BodyBluePrint = function(targetClass) {
 	this.store = {};
 	this.store.targetClass = targetClass;
 	this.store.shape = new ClosedShape()
