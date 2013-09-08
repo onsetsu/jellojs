@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.World = World;
 	window.DistanceJoint = DistanceJoint;
 	window.InterpolationJoint = InterpolationJoint;
 	window.PinJoint = PinJoint;
@@ -25,6 +24,7 @@
 		Ray: Ray,
 		Vector2: Vector2,
 		VectorTools: VectorTools,
+		World: World,
 		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory

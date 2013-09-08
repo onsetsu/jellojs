@@ -3059,7 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.World = World;
 	window.DistanceJoint = DistanceJoint;
 	window.InterpolationJoint = InterpolationJoint;
 	window.PinJoint = PinJoint;
@@ -3081,6 +3080,7 @@ QuadTree = function() {
 		Ray: Ray,
 		Vector2: Vector2,
 		VectorTools: VectorTools,
+		World: World,
 		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory

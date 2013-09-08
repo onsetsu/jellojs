@@ -29,7 +29,7 @@ var Utils = {
 };
 
 var initWorld = function() {
-	var world = new World();
+	var world = new Jello.World();
 
 	// GROUND SHAPE
 	var groundShape = new Jello.ClosedShape()
