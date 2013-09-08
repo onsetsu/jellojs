@@ -30,7 +30,6 @@
 		CollisionCallback: CollisionCallback,
 		Material: Material,
 		ParticleCannon: ParticleCannon,
-		PointMass: PointMass,
 		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory
