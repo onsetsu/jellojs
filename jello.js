@@ -3059,7 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.MaterialPair = MaterialPair;
 	window.MaterialManager = MaterialManager;
 	window.Particle = Particle;
 	window.ParticleCannon = ParticleCannon;
@@ -3090,9 +3089,9 @@ QuadTree = function() {
 		InternalSpring: InternalSpring,
 		CollisionCallback: CollisionCallback,
 		Material: Material,
+		MaterialPair: MaterialPair,
 		
 		BodyBluePrint: BodyBluePrint,
-		BodyFactory: BodyFactory,
-		Material: Material
+		BodyFactory: BodyFactory
 	};
 })(window);
