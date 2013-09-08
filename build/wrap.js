@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.ParticleCannon = ParticleCannon;
 	window.PointMass = PointMass;
 	window.QuadTree = QuadTree;
 	window.Queue = Queue;
@@ -31,6 +30,7 @@
 		InternalSpring: InternalSpring,
 		CollisionCallback: CollisionCallback,
 		Material: Material,
+		ParticleCannon: ParticleCannon,
 		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory

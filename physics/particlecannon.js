@@ -1,4 +1,4 @@
-ParticleCannon = function() {
+var ParticleCannon = function() {
 	this.store = {};
 	this.store.bluePrint = BodyFactory.createBluePrint();
 };
