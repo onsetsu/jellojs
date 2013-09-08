@@ -3059,7 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.Ray = Ray;
 	window.SpringBuilder = SpringBuilder;
 	window.Vector2 = Vector2;
 	window.VectorTools = VectorTools;
@@ -3082,6 +3081,7 @@ QuadTree = function() {
 		CollisionCallback: CollisionCallback,
 		Material: Material,
 		ParticleCannon: ParticleCannon,
+		Ray: Ray,
 
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory

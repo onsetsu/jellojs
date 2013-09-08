@@ -18,7 +18,7 @@ var SingleIntersection = function(pos, body, edgeNumber) {
 /*
  * RayIntersectionObject
  */
-RayIntersectionObject = function(pos, body, edgeNumber) {
+var RayIntersectionObject = function(pos, body, edgeNumber) {
 	this.intersections = [];
 };
 
@@ -57,7 +57,7 @@ PrivateIntersectionObject.prototype.NumberOfSolutions = function() { // returns 
 /*
  * Ray
  */
-Ray = function(world, origin, direction) {
+var Ray = function(world, origin, direction) {
 	this.world = world;
 	this.origin = origin;
 	this.direction = direction;
