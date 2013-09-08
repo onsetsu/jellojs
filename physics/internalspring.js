@@ -1,4 +1,4 @@
-Jello.InternalSpring = function(pmA, pmB, d, k, damp) {
+InternalSpring = function(pmA, pmB, d, k, damp) {
 	this.pointMassA = pmA || 0;
 	this.pointMassB = pmB || 0;
 	this.springD = d || 0.0;
@@ -6,7 +6,7 @@ Jello.InternalSpring = function(pmA, pmB, d, k, damp) {
 	this.damping = damp || 0.0;
 };
 
-Jello.InternalSpring.prototype.debugDraw = function(debugDraw, body) {
+InternalSpring.prototype.debugDraw = function(debugDraw, body) {
 	debugDraw.setOptions({
 		"color": "green",
 		"opacity": 0.6,

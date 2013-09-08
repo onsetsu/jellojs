@@ -6,7 +6,6 @@
 	
 	// define API for Jello
 	window.AABB = AABB;
-	window.Jello = {};
 	window.BitMask = Bitmask;
 	window.Body = Body;
 	window.Bloob = window.Bloob || {};
@@ -17,7 +16,7 @@
 	window.ClosedShape = ClosedShape;
 	window.Bloob.Contact = Bloob.Contact;
 	window.ContactManager = ContactManager;
-	window.Jello.InternalSpring = Jello.InternalSpring;
+	window.InternalSpring = InternalSpring;
 	window.CollisionCallback = CollisionCallback;
 	window.Bloob.Material = Bloob.Material;
 	window.MaterialPair = MaterialPair;
@@ -39,4 +38,8 @@
 	window.DistanceJoint = DistanceJoint;
 	window.InterpolationJoint = InterpolationJoint;
 	window.PinJoint = PinJoint;
+
+	window.Jello = {
+		InternalSpring: InternalSpring
+	};
 })(window);

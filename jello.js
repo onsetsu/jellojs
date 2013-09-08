@@ -61,7 +61,7 @@ Bitmask.prototype.setOff = function(bit) {
 Bitmask.prototype.getBit = function(bit) {
 	return ((this.mask & (0x01 << (bit))) != 0);
 };
-Jello.InternalSpring = function(pmA, pmB, d, k, damp) {
+InternalSpring = function(pmA, pmB, d, k, damp) {
 	this.pointMassA = pmA || 0;
 	this.pointMassB = pmB || 0;
 	this.springD = d || 0.0;
@@ -69,7 +69,7 @@ Jello.InternalSpring = function(pmA, pmB, d, k, damp) {
 	this.damping = damp || 0.0;
 };
 
-Jello.InternalSpring.prototype.debugDraw = function(debugDraw, body) {
+InternalSpring.prototype.debugDraw = function(debugDraw, body) {
 	debugDraw.setOptions({
 		"color": "green",
 		"opacity": 0.6,
@@ -2166,7 +2166,7 @@ SpringBody.prototype._buildDefaultSprings = function() {
 
 SpringBody.prototype.addInternalSpring = function(pointA, pointB, springK, damping ) { // int, int, float, float
 	var dist = (this.pointMasses[pointB].Position.sub(this.pointMasses[pointA].Position)).length(); // float 
-	var s = new Jello.InternalSpring(pointA, pointB, dist, springK, damping);
+	var s = new InternalSpring(pointA, pointB, dist, springK, damping);
 	
 	this.mSprings.push(s);
 };
@@ -3064,7 +3064,6 @@ QuadTree = function() {
 	
 	// define API for Jello
 	window.AABB = AABB;
-	window.Jello = {};
 	window.BitMask = Bitmask;
 	window.Body = Body;
 	window.Bloob = window.Bloob || {};
@@ -3075,7 +3074,7 @@ QuadTree = function() {
 	window.ClosedShape = ClosedShape;
 	window.Bloob.Contact = Bloob.Contact;
 	window.ContactManager = ContactManager;
-	window.Jello.InternalSpring = Jello.InternalSpring;
+	window.InternalSpring = InternalSpring;
 	window.CollisionCallback = CollisionCallback;
 	window.Bloob.Material = Bloob.Material;
 	window.MaterialPair = MaterialPair;
@@ -3097,4 +3096,8 @@ QuadTree = function() {
 	window.DistanceJoint = DistanceJoint;
 	window.InterpolationJoint = InterpolationJoint;
 	window.PinJoint = PinJoint;
+
+	window.Jello = {
+		InternalSpring: InternalSpring
+	};
 })(window);
