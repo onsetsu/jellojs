@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.Contact = Contact;
 	window.ContactManager = ContactManager;
 	window.InternalSpring = InternalSpring;
 	window.CollisionCallback = CollisionCallback;
@@ -34,6 +33,7 @@
 		PressureBody: PressureBody,
 		//BodyCollisionInfo: BodyCollisionInfo,
 		ClosedShape: ClosedShape,
+		//Contact: Contact,
 		
 		InternalSpring: InternalSpring,
 		BodyBluePrint: BodyBluePrint,
