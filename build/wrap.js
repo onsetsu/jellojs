@@ -10,7 +10,7 @@
 	window.Body = Body;
 	window.Bloob = window.Bloob || {};
 	window.BodyCollisionInfo;
-	window.Bloob.BodyFactory = Bloob.BodyFactory;
+	window.BodyFactory = BodyFactory;
 	window.ClosedShape = ClosedShape;
 	window.Bloob.Contact = Bloob.Contact;
 	window.ContactManager = ContactManager;
@@ -39,6 +39,7 @@
 
 	window.Jello = {
 		InternalSpring: InternalSpring,
-		BodyBluePrint: BodyBluePrint
+		BodyBluePrint: BodyBluePrint,
+		BodyFactory: BodyFactory
 	};
 })(window);

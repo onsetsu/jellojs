@@ -2735,9 +2735,9 @@ BodyBluePrint.prototype.build = function() {
 	// TODO: define getter and use blueprint as parameter
 	return Bloob.BodyBuilder.build(this.store);
 };
-Bloob.BodyFactory = function() {};
+BodyFactory = function() {};
 
-Bloob.BodyFactory.createBluePrint = function(targetClass) {
+BodyFactory.createBluePrint = function(targetClass) {
 	return new BodyBluePrint(targetClass);
 };
 Particle = function() {
@@ -2757,7 +2757,7 @@ Particle.prototype.integrate = function(timePassed) {
 };
 ParticleCannon = function() {
 	this.store = {};
-	this.store.bluePrint = Bloob.BodyFactory.createBluePrint();
+	this.store.bluePrint = BodyFactory.createBluePrint();
 };
 
 ParticleCannon.prototype.world = function(world) {
@@ -3068,7 +3068,7 @@ QuadTree = function() {
 	window.Body = Body;
 	window.Bloob = window.Bloob || {};
 	window.BodyCollisionInfo;
-	window.Bloob.BodyFactory = Bloob.BodyFactory;
+	window.BodyFactory = BodyFactory;
 	window.ClosedShape = ClosedShape;
 	window.Bloob.Contact = Bloob.Contact;
 	window.ContactManager = ContactManager;
@@ -3097,6 +3097,7 @@ QuadTree = function() {
 
 	window.Jello = {
 		InternalSpring: InternalSpring,
-		BodyBluePrint: BodyBluePrint
+		BodyBluePrint: BodyBluePrint,
+		BodyFactory: BodyFactory
 	};
 })(window);

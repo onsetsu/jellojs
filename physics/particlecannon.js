@@ -1,6 +1,6 @@
 ParticleCannon = function() {
 	this.store = {};
-	this.store.bluePrint = Bloob.BodyFactory.createBluePrint();
+	this.store.bluePrint = BodyFactory.createBluePrint();
 };
 
 ParticleCannon.prototype.world = function(world) {
