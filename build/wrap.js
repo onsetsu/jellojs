@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.CollisionCallback = CollisionCallback;
 	window.Material = Material;
 	window.MaterialPair = MaterialPair;
 	window.MaterialManager = MaterialManager;
@@ -34,6 +33,7 @@
 		//Contact: Contact,
 		//ContactManager: ContactManager,
 		InternalSpring: InternalSpring,
+		CollisionCallback: CollisionCallback,
 
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory,
