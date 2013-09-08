@@ -40,7 +40,7 @@ var initWorld = function() {
 		.addVertex(new Vector2(-1, -1))
 		.finish();
 	
-	var groundBody = new Body(
+	var groundBody = new Jello.Body(
 		world,
 		groundShape,
 		Utils.fillArray(0/*Number.POSITIVE_INFINITY*/, groundShape.getVertices().length),
@@ -63,7 +63,7 @@ var initWorld = function() {
 	
 	for(var i = 0; i < 4; i++) {
 		for(var j = 0; j < 4; j++) {
-			var body = new SpringBody(
+			var body = new Jello.SpringBody(
 				world,
 				shape,
 				1, // mass per point
@@ -101,7 +101,7 @@ var initWorld = function() {
 	
 	for (x = 10; x <= 10; x+=5) {
 		for (y = 0; y <= 0; y+=8) {
-			var pb = new PressureBody(
+			var pb = new Jello.PressureBody(
 				world,
 				ball,
 				1.0,
@@ -143,7 +143,7 @@ var initWorld = function() {
 	
 	for (i = -5; i <= 25; i+=15) {
 
-		var body = new SpringBody(
+		var body = new Jello.SpringBody(
 			world,
 			shape,
 			1,

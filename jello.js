@@ -3059,7 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.Body = Body;
 	window.BodyCollisionInfo;
 	window.BodyFactory = BodyFactory;
 	window.ClosedShape = ClosedShape;
@@ -3073,13 +3072,11 @@ QuadTree = function() {
 	window.Particle = Particle;
 	window.ParticleCannon = ParticleCannon;
 	window.PointMass = PointMass;
-	window.PressureBody = PressureBody;
 	window.QuadTree = QuadTree;
 	window.Queue = Queue;
 	window.SingleIntersection = SingleIntersection;
 	window.RayIntersectionObject = RayIntersectionObject;
 	window.Ray = Ray;
-	window.SpringBody = SpringBody;
 	window.SpringBuilder = SpringBuilder;
 	window.Vector2 = Vector2;
 	window.VectorTools = VectorTools;
@@ -3091,6 +3088,10 @@ QuadTree = function() {
 	window.Jello = {
 		//AABB: AABB,
 		//BitMask: Bitmask,
+		Body: Body,
+		SpringBody: SpringBody,
+		PressureBody: PressureBody,
+		
 		InternalSpring: InternalSpring,
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory,
