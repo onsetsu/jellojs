@@ -3,8 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.AABB = AABB;
-	window.BitMask = Bitmask;
 	window.Body = Body;
 	window.BodyCollisionInfo;
 	window.BodyFactory = BodyFactory;
@@ -35,6 +33,8 @@
 	window.PinJoint = PinJoint;
 
 	window.Jello = {
+		//AABB: AABB,
+		//BitMask: Bitmask,
 		InternalSpring: InternalSpring,
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory,
