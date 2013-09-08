@@ -9,25 +9,29 @@
 	<script src="../../../Scarlet/libs/d3/d3.js"></script>
 	<script src="../../../Scarlet/libs/stats.js"></script>
 	<script>
+		var Bloob = {};
+	</script>
+	<script src="../../../../Bloob/lib/physics/physics.js"></script>
+	<script>
 		var includePath = "../../Bloob/soft_body_engine/physics/src/"; // include path relative to scarlet.js
 		Scarlet
-			.include(includePath + "jellyphysics")
+			//.include(includePath + "jellyphysics")
 
-			.include(includePath + "bitmask")
+			//.include(includePath + "bitmask")
 
-			.include(includePath + "internalspring")
+			//.include(includePath + "internalspring")
 
-			.include(includePath + "jellyprerequisites")
-			.include(includePath + "vector2")
-			.include(includePath + "pointmass")
-			.include(includePath + "aabb") // needs vector2
-			.include(includePath + "vectortools") // needs vector2, jellyprerequisites
-			.include(includePath + "closedshape") // needs VectorTools, JellyPrerequisites, Vector2 
+			//.include(includePath + "jellyprerequisites")
+			//.include(includePath + "vector2")
+			//.include(includePath + "pointmass")
+			//.include(includePath + "aabb") // needs vector2
+			//.include(includePath + "vectortools") // needs vector2, jellyprerequisites
+			//.include(includePath + "closedshape") // needs VectorTools, JellyPrerequisites, Vector2 
 			
-			.include(includePath + "body") // needs VectorTools, JellyPrerequisites, Vector2, ClosedShape, Bitmask, AABB, PointMass
-			.include(includePath + "world")
-			.include(includePath + "springbody") // Body, InternalSpring, World, VectorTools
-			.include(includePath + "pressurebody") // springbody
+			//.include(includePath + "body") // needs VectorTools, JellyPrerequisites, Vector2, ClosedShape, Bitmask, AABB, PointMass
+			//.include(includePath + "world")
+			//.include(includePath + "springbody") // Body, InternalSpring, World, VectorTools
+			//.include(includePath + "pressurebody") // springbody
 			
 			.include(includePath + "debugdraw")
 			
