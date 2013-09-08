@@ -1,4 +1,4 @@
-Bloob.Contact = function(bodyA, bodyB) {
+Contact = function(bodyA, bodyB) {
 	this.bodyA = bodyA;
 	this.bodyB = bodyB;
 	this.isNew = false;
@@ -71,7 +71,7 @@ ContactManager.prototype.addContact = function(bodyA, bodyB) {
 		this.contacts[bodyB.id] = {};
 	};
 	if(typeof this.contacts[bodyA.id][bodyB.id] === "undefined") {
-		var contact = new Bloob.Contact(bodyA, bodyB);
+		var contact = new Contact(bodyA, bodyB);
 		this.contacts[bodyA.id][bodyB.id] = contact;
 		this.contacts[bodyB.id][bodyA.id] = contact;
 	};

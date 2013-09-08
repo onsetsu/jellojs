@@ -12,7 +12,7 @@
 	window.BodyCollisionInfo;
 	window.BodyFactory = BodyFactory;
 	window.ClosedShape = ClosedShape;
-	window.Bloob.Contact = Bloob.Contact;
+	window.Contact = Contact;
 	window.ContactManager = ContactManager;
 	window.InternalSpring = InternalSpring;
 	window.CollisionCallback = CollisionCallback;
