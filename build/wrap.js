@@ -3,8 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.SingleIntersection = SingleIntersection;
-	window.RayIntersectionObject = RayIntersectionObject;
 	window.Ray = Ray;
 	window.SpringBuilder = SpringBuilder;
 	window.Vector2 = Vector2;
@@ -28,7 +26,7 @@
 		CollisionCallback: CollisionCallback,
 		Material: Material,
 		ParticleCannon: ParticleCannon,
-		
+
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory
 	};
