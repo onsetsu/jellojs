@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.BodyFactory = BodyFactory;
 	window.ClosedShape = ClosedShape;
 	window.Contact = Contact;
 	window.ContactManager = ContactManager;
