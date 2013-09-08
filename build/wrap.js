@@ -3,7 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.MaterialManager = MaterialManager;
 	window.Particle = Particle;
 	window.ParticleCannon = ParticleCannon;
 	window.PointMass = PointMass;
