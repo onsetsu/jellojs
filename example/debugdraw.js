@@ -62,9 +62,9 @@ DebugDraw.prototype.drawAABB = function(vAABB) {
 	this.context.beginPath();
 	this.drawPolyline([
 		vAABB.Min,
-		new Vector2(vAABB.Min.x, vAABB.Max.y),
+		new Jello.Vector2(vAABB.Min.x, vAABB.Max.y),
 		vAABB.Max,
-		new Vector2(vAABB.Max.x, vAABB.Min.y),
+		new Jello.Vector2(vAABB.Max.x, vAABB.Min.y),
 		vAABB.Min
 	]);
 	this.context.lineWidth = 1;

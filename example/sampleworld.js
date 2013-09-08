@@ -34,19 +34,19 @@ var initWorld = function() {
 	// GROUND SHAPE
 	var groundShape = new Jello.ClosedShape()
 		.begin()
-		.addVertex(new Vector2(-1,  1))
-		.addVertex(new Vector2( 1,  1))
-		.addVertex(new Vector2( 1, -1))
-		.addVertex(new Vector2(-1, -1))
+		.addVertex(new Jello.Vector2(-1,  1))
+		.addVertex(new Jello.Vector2( 1,  1))
+		.addVertex(new Jello.Vector2( 1, -1))
+		.addVertex(new Jello.Vector2(-1, -1))
 		.finish();
 	
 	var groundBody = new Jello.Body(
 		world,
 		groundShape,
 		Utils.fillArray(0/*Number.POSITIVE_INFINITY*/, groundShape.getVertices().length),
-		new Vector2(0, -15), // translate
+		new Jello.Vector2(0, -15), // translate
 		0, // rotate
-		new Vector2(18, 3), // scale
+		new Jello.Vector2(18, 3), // scale
 		false
 	);
 	groundBody.aName = "ground";
@@ -55,10 +55,10 @@ var initWorld = function() {
 
 	var shape = new Jello.ClosedShape()
 		.begin()
-		.addVertex(new Vector2(-1, -1))
-		.addVertex(new Vector2(-1,  1))
-		.addVertex(new Vector2( 1,  1))
-		.addVertex(new Vector2( 1, -1))
+		.addVertex(new Jello.Vector2(-1, -1))
+		.addVertex(new Jello.Vector2(-1,  1))
+		.addVertex(new Jello.Vector2( 1,  1))
+		.addVertex(new Jello.Vector2( 1, -1))
 		.finish();
 	
 	for(var i = 0; i < 4; i++) {
@@ -67,9 +67,9 @@ var initWorld = function() {
 				world,
 				shape,
 				1, // mass per point
-				new Vector2(2*i, 2*j), // translate
+				new Jello.Vector2(2*i, 2*j), // translate
 				0, // rotate
-				Vector2.One.copy().mulFloat(1.0), // scale
+				Jello.Vector2.One.copy().mulFloat(1.0), // scale
 				false,
 				
 				// new:
@@ -91,7 +91,7 @@ var initWorld = function() {
 	ball.begin();
 	for (var i = 0; i < 360; i += 20) {
 		ball.addVertex(
-			new Vector2(
+			new Jello.Vector2(
 				Math.cos(-i * (Math.PI / 180)),
 				Math.sin(-i * (Math.PI / 180))
 			)
@@ -105,9 +105,9 @@ var initWorld = function() {
 				world,
 				ball,
 				1.0,
-				new Vector2(x, y),
+				new Jello.Vector2(x, y),
 				0,
-				Vector2.One.copy().mulFloat(2.0),
+				Jello.Vector2.One.copy().mulFloat(2.0),
 				false,
 				300.0,
 				20.0,
@@ -123,22 +123,22 @@ var initWorld = function() {
 	
 	var shape = new Jello.ClosedShape()
 		.begin()
-		.addVertex(new Vector2(-1.5, 2.0))
-		.addVertex(new Vector2(-0.5, 2.0))
-		.addVertex(new Vector2(0.5, 2.0))
-		.addVertex(new Vector2(1.5, 2.0))
-		.addVertex(new Vector2(1.5, 1.0))
-		.addVertex(new Vector2(0.5, 1.0))
-		.addVertex(new Vector2(0.5, -1.0))
-		.addVertex(new Vector2(1.5, -1.0))
-		.addVertex(new Vector2(1.5, -2.0))
-		.addVertex(new Vector2(0.5, -2.0))
-		.addVertex(new Vector2(-0.5, -2.0))
-		.addVertex(new Vector2(-1.5, -2.0))
-		.addVertex(new Vector2(-1.5, -1.0))
-		.addVertex(new Vector2(-0.5, -1.0))
-		.addVertex(new Vector2(-0.5, 1.0))
-		.addVertex(new Vector2(-1.5, 1.0))
+		.addVertex(new Jello.Vector2(-1.5, 2.0))
+		.addVertex(new Jello.Vector2(-0.5, 2.0))
+		.addVertex(new Jello.Vector2(0.5, 2.0))
+		.addVertex(new Jello.Vector2(1.5, 2.0))
+		.addVertex(new Jello.Vector2(1.5, 1.0))
+		.addVertex(new Jello.Vector2(0.5, 1.0))
+		.addVertex(new Jello.Vector2(0.5, -1.0))
+		.addVertex(new Jello.Vector2(1.5, -1.0))
+		.addVertex(new Jello.Vector2(1.5, -2.0))
+		.addVertex(new Jello.Vector2(0.5, -2.0))
+		.addVertex(new Jello.Vector2(-0.5, -2.0))
+		.addVertex(new Jello.Vector2(-1.5, -2.0))
+		.addVertex(new Jello.Vector2(-1.5, -1.0))
+		.addVertex(new Jello.Vector2(-0.5, -1.0))
+		.addVertex(new Jello.Vector2(-0.5, 1.0))
+		.addVertex(new Jello.Vector2(-1.5, 1.0))
 		.finish();
 	
 	for (i = -5; i <= 25; i+=15) {
@@ -147,9 +147,9 @@ var initWorld = function() {
 			world,
 			shape,
 			1,
-			new Vector2(-8, i),
+			new Jello.Vector2(-8, i),
 			0.0,
-			Vector2.One.copy().mulFloat(2),
+			Jello.Vector2.One.copy().mulFloat(2),
 			false,
 			150.0,
 			5.0,
