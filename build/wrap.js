@@ -3,10 +3,11 @@
 	// CODE HERE
 	
 	// define API for Jello
-
 	window.Jello = {
 		//AABB: AABB,
 		//BitMask: Bitmask,
+		BodyBluePrint: BodyBluePrint,
+		BodyFactory: BodyFactory,
 		Body: Body,
 		SpringBody: SpringBody,
 		PressureBody: PressureBody,
@@ -24,9 +25,6 @@
 		World: World,
 		DistanceJoint: DistanceJoint,
 		InterpolationJoint: InterpolationJoint,
-		PinJoint: PinJoint,
-		
-		BodyBluePrint: BodyBluePrint,
-		BodyFactory: BodyFactory
+		PinJoint: PinJoint
 	};
 })(window);
