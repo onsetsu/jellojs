@@ -3,8 +3,6 @@
 	// CODE HERE
 	
 	// define API for Jello
-	window.QuadTree = QuadTree;
-	window.Queue = Queue;
 	window.SingleIntersection = SingleIntersection;
 	window.RayIntersectionObject = RayIntersectionObject;
 	window.Ray = Ray;

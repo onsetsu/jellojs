@@ -3059,8 +3059,6 @@ QuadTree = function() {
 };
 	
 	// define API for Jello
-	window.QuadTree = QuadTree;
-	window.Queue = Queue;
 	window.SingleIntersection = SingleIntersection;
 	window.RayIntersectionObject = RayIntersectionObject;
 	window.Ray = Ray;
@@ -3086,7 +3084,8 @@ QuadTree = function() {
 		CollisionCallback: CollisionCallback,
 		Material: Material,
 		ParticleCannon: ParticleCannon,
-		PointMass: PointMass,
+		QuadTree: QuadTree,
+		Queue: Queue,
 		
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory
