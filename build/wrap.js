@@ -9,8 +9,6 @@
 	window.BitMask = Bitmask;
 	window.Body = Body;
 	window.Bloob = window.Bloob || {};
-	window.Bloob.BodyBluePrint = Bloob.BodyBluePrint;
-	window.Bloob.BodyBuilder = Bloob.BodyBuilder;
 	window.BodyCollisionInfo;
 	window.Bloob.BodyFactory = Bloob.BodyFactory;
 	window.ClosedShape = ClosedShape;
@@ -40,6 +38,7 @@
 	window.PinJoint = PinJoint;
 
 	window.Jello = {
-		InternalSpring: InternalSpring
+		InternalSpring: InternalSpring,
+		BodyBluePrint: BodyBluePrint
 	};
 })(window);
