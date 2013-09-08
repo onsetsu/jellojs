@@ -1284,7 +1284,7 @@ MaterialManager.prototype.getMaterialCount = function() { return this.mMaterialC
 	this.mCollisionList = []; //std::vector<BodyCollisionInfo>
 
 	this.materialManager = new MaterialManager();
-	this.contactManager = new Bloob.ContactManager();
+	this.contactManager = new ContactManager();
 
 	this.setWorldLimits(new Vector2(-20,-20), new Vector2(20,20));
 		
@@ -2986,11 +2986,11 @@ Bloob.Contact = function(bodyA, bodyB) {
 	this.isNew = false;
 };
 
-Bloob.ContactManager = function() {
+ContactManager = function() {
 	this.contacts = {};
 };
 
-Bloob.ContactManager.prototype.processCollisions = function(world) {
+ContactManager.prototype.processCollisions = function(world) {
 	var currentCollisions = world.mCollisionList;
 	
 	var lastContacts = this.contacts;
@@ -3045,7 +3045,7 @@ Bloob.ContactManager.prototype.processCollisions = function(world) {
 	
 };
 
-Bloob.ContactManager.prototype.addContact = function(bodyA, bodyB) {
+ContactManager.prototype.addContact = function(bodyA, bodyB) {
 	if(typeof this.contacts[bodyA.id] === "undefined") {
 		this.contacts[bodyA.id] = {};
 	};
@@ -3074,7 +3074,7 @@ QuadTree = function() {
 	window.Bloob.BodyFactory = Bloob.BodyFactory;
 	window.ClosedShape = ClosedShape;
 	window.Bloob.Contact = Bloob.Contact;
-	window.Bloob.ContactManager = Bloob.ContactManager;
+	window.ContactManager = ContactManager;
 	window.Jello.InternalSpring = Jello.InternalSpring;
 	window.CollisionCallback = CollisionCallback;
 	window.Bloob.Material = Bloob.Material;

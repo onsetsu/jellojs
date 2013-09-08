@@ -16,7 +16,7 @@
 	window.Bloob.BodyFactory = Bloob.BodyFactory;
 	window.ClosedShape = ClosedShape;
 	window.Bloob.Contact = Bloob.Contact;
-	window.Bloob.ContactManager = Bloob.ContactManager;
+	window.ContactManager = ContactManager;
 	window.Jello.InternalSpring = Jello.InternalSpring;
 	window.CollisionCallback = CollisionCallback;
 	window.Bloob.Material = Bloob.Material;

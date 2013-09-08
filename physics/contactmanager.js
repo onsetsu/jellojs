@@ -4,11 +4,11 @@ Bloob.Contact = function(bodyA, bodyB) {
 	this.isNew = false;
 };
 
-Bloob.ContactManager = function() {
+ContactManager = function() {
 	this.contacts = {};
 };
 
-Bloob.ContactManager.prototype.processCollisions = function(world) {
+ContactManager.prototype.processCollisions = function(world) {
 	var currentCollisions = world.mCollisionList;
 	
 	var lastContacts = this.contacts;
@@ -63,7 +63,7 @@ Bloob.ContactManager.prototype.processCollisions = function(world) {
 	
 };
 
-Bloob.ContactManager.prototype.addContact = function(bodyA, bodyB) {
+ContactManager.prototype.addContact = function(bodyA, bodyB) {
 	if(typeof this.contacts[bodyA.id] === "undefined") {
 		this.contacts[bodyA.id] = {};
 	};
