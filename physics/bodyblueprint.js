@@ -1,5 +1,3 @@
-var Bloob = Bloob || {};
-
 BodyBluePrint = function(targetClass) {
 	this.store = {};
 	this.store.targetClass = targetClass;

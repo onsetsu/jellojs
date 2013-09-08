@@ -5,7 +5,7 @@ printf = DEBUG;
 
 var DebugDraw = function(world, options) {
 	options = options || {};
-	options.canvasId = options.canvasId || "bloobCanvas";
+	options.canvasId = options.canvasId || "jelloCanvas";
 	options.canvasHeight = options.canvasHeight || 500;
 	options.canvasWidth = options.canvaswidth || 500;
 	options.backgroundColor = options.backgroundColor || "black";

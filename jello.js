@@ -1388,7 +1388,7 @@ World.prototype.removeJoint = function(j) { // Joint
 	}
 };
 
-World.prototype.addParticleCannon = function(pc) { // Bloob.ParticleCannon
+World.prototype.addParticleCannon = function(pc) { // ParticleCannon
 	DEBUG("addParticleCannon:", pc);
 
 	// check for already existing.
@@ -2641,9 +2641,7 @@ BodyBuilder.build = function(bodyDefinition) {
 		newBody.addInternalSpring.apply(newBody, bodyDefinition.internalSprings[i]);
 
 	return newBody;
-};var Bloob = Bloob || {};
-
-BodyBluePrint = function(targetClass) {
+};BodyBluePrint = function(targetClass) {
 	this.store = {};
 	this.store.targetClass = targetClass;
 	this.store.shape = new ClosedShape()

@@ -121,7 +121,7 @@ World.prototype.removeJoint = function(j) { // Joint
 	}
 };
 
-World.prototype.addParticleCannon = function(pc) { // Bloob.ParticleCannon
+World.prototype.addParticleCannon = function(pc) { // ParticleCannon
 	DEBUG("addParticleCannon:", pc);
 
 	// check for already existing.
