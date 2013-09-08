@@ -1,6 +1,6 @@
-Bloob.BodyBuilder = {};
+BodyBuilder = {};
 
-Bloob.BodyBuilder.build = function(bodyDefinition) {
+BodyBuilder.build = function(bodyDefinition) {
 	var newBody = new bodyDefinition.targetClass(
 		bodyDefinition.world,
 		bodyDefinition.shape,

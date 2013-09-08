@@ -1,7 +1,5 @@
 (function(window, undefined){
 	
-	var Bloob = window.Bloob || {};
-	
 	var Jello = {};var QueueItem = function(func, args) {
 	this.func = func;
 	this.args = args;
@@ -2621,9 +2619,9 @@ Ray.prototype.debugDrawReflection = function(debugDraw) {
 		reflection.position.add(reflection.direction.mulFloat(1000))
 	]);
 };
-Bloob.BodyBuilder = {};
+BodyBuilder = {};
 
-Bloob.BodyBuilder.build = function(bodyDefinition) {
+BodyBuilder.build = function(bodyDefinition) {
 	var newBody = new bodyDefinition.targetClass(
 		bodyDefinition.world,
 		bodyDefinition.shape,
@@ -2733,7 +2731,7 @@ BodyBluePrint.prototype.addInternalSpring = function(pointA, pointB, springK, da
 
 BodyBluePrint.prototype.build = function() {
 	// TODO: define getter and use blueprint as parameter
-	return Bloob.BodyBuilder.build(this.store);
+	return BodyBuilder.build(this.store);
 };
 BodyFactory = function() {};
 
@@ -3066,7 +3064,6 @@ QuadTree = function() {
 	window.AABB = AABB;
 	window.BitMask = Bitmask;
 	window.Body = Body;
-	window.Bloob = window.Bloob || {};
 	window.BodyCollisionInfo;
 	window.BodyFactory = BodyFactory;
 	window.ClosedShape = ClosedShape;

@@ -88,5 +88,5 @@ BodyBluePrint.prototype.addInternalSpring = function(pointA, pointB, springK, da
 
 BodyBluePrint.prototype.build = function() {
 	// TODO: define getter and use blueprint as parameter
-	return Bloob.BodyBuilder.build(this.store);
+	return BodyBuilder.build(this.store);
 };

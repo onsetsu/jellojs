@@ -1,14 +1,11 @@
 (function(window, undefined){
 	
-	var Bloob = window.Bloob || {};
-	
 	// CODE HERE
 	
 	// define API for Jello
 	window.AABB = AABB;
 	window.BitMask = Bitmask;
 	window.Body = Body;
-	window.Bloob = window.Bloob || {};
 	window.BodyCollisionInfo;
 	window.BodyFactory = BodyFactory;
 	window.ClosedShape = ClosedShape;
