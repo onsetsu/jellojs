@@ -27,7 +27,7 @@
 	window.PointMass = PointMass;
 	window.PressureBody = PressureBody;
 	window.QuadTree = QuadTree;
-	window.Jello.Queue = Jello.Queue;
+	window.Queue = Queue;
 	window.SingleIntersection = SingleIntersection;
 	window.RayIntersectionObject = RayIntersectionObject;
 	window.Ray = Ray;

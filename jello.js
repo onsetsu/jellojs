@@ -7,7 +7,7 @@
 	this.args = args;
 };
 
-Jello.Queue = function(obj) {
+Queue = function(obj) {
 
 	this.__events__ = [];
 	this.object = obj;
@@ -30,7 +30,7 @@ Jello.Queue = function(obj) {
 	}
 };
 
-Jello.Queue.prototype.fire = function() {
+Queue.prototype.fire = function() {
 	// process all collected events
 	for(var i = 0; i < this.__events__.length; i++) {
 		var func = this.object[this.__events__[i].func];
@@ -1575,7 +1575,7 @@ World.prototype.update = function(timePassed) { // float
 
 World.prototype.queue = function() {
 	if(typeof this.__queue__ === "undefined")
-		this.__queue__ = new Jello.Queue(this);
+		this.__queue__ = new Queue(this);
 	return this.__queue__;
 };
 
@@ -3085,7 +3085,7 @@ QuadTree = function() {
 	window.PointMass = PointMass;
 	window.PressureBody = PressureBody;
 	window.QuadTree = QuadTree;
-	window.Jello.Queue = Jello.Queue;
+	window.Queue = Queue;
 	window.SingleIntersection = SingleIntersection;
 	window.RayIntersectionObject = RayIntersectionObject;
 	window.Ray = Ray;

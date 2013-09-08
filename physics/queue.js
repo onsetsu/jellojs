@@ -3,7 +3,7 @@ var QueueItem = function(func, args) {
 	this.args = args;
 };
 
-Jello.Queue = function(obj) {
+Queue = function(obj) {
 
 	this.__events__ = [];
 	this.object = obj;
@@ -26,7 +26,7 @@ Jello.Queue = function(obj) {
 	}
 };
 
-Jello.Queue.prototype.fire = function() {
+Queue.prototype.fire = function() {
 	// process all collected events
 	for(var i = 0; i < this.__events__.length; i++) {
 		var func = this.object[this.__events__[i].func];
