@@ -21,7 +21,7 @@
 	window.CollisionCallback = CollisionCallback;
 	window.Bloob.Material = Bloob.Material;
 	window.MaterialPair = MaterialPair;
-	window.Bloob.MaterialManager = Bloob.MaterialManager;
+	window.MaterialManager = MaterialManager;
 	window.Particle = Particle;
 	window.ParticleCannon = ParticleCannon;
 	window.PointMass = PointMass;

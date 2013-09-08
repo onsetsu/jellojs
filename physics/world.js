@@ -14,7 +14,7 @@ var World = function() {
 	
 	this.mCollisionList = []; //std::vector<BodyCollisionInfo>
 
-	this.materialManager = new Bloob.MaterialManager();
+	this.materialManager = new MaterialManager();
 	this.contactManager = new Bloob.ContactManager();
 
 	this.setWorldLimits(new Vector2(-20,-20), new Vector2(20,20));

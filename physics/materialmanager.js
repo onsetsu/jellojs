@@ -23,7 +23,7 @@ var MaterialPair = function() {
 	this.Callback = new CollisionCallback();
 };
 
-Bloob.MaterialManager = function() {
+MaterialManager = function() {
 	this.mMaterialPairs = []; // MaterialPair*	
 	this.mDefaultMatPair = new MaterialPair(); // MaterialPair
 	this.mMaterialCount = 0; // int
@@ -41,12 +41,12 @@ Bloob.MaterialManager = function() {
 	this.addMaterial(Bloob.Material.Default);
 };
 
-Bloob.MaterialManager.prototype.getMaterialPair = function(materialA, materialB) {
+MaterialManager.prototype.getMaterialPair = function(materialA, materialB) {
 	return this.mMaterialPairs[materialA][materialB];
 	return this.mMaterialPairs[(materialA * this.mMaterialCount) + materialB];
 };
 
-Bloob.MaterialManager.prototype.addMaterial = function(material)
+MaterialManager.prototype.addMaterial = function(material)
 {
 	this.mMaterialCount++;
 	
@@ -62,12 +62,12 @@ Bloob.MaterialManager.prototype.addMaterial = function(material)
 	};
 };
 
-Bloob.MaterialManager.prototype.setMaterialPairCollide = function(materialA, materialB, collide) {
+MaterialManager.prototype.setMaterialPairCollide = function(materialA, materialB, collide) {
 	this.mMaterialPairs[materialA][materialB].Collide = collide;
 	this.mMaterialPairs[materialB][materialA].Collide = collide;
 };
 
-Bloob.MaterialManager.prototype.setMaterialPairData = function(materialA, materialB, friction, elasticity) {
+MaterialManager.prototype.setMaterialPairData = function(materialA, materialB, friction, elasticity) {
 	this.mMaterialPairs[materialA][materialB].Friction = friction;
 	this.mMaterialPairs[materialA][materialB].Elasticity = elasticity;
 
@@ -75,9 +75,9 @@ Bloob.MaterialManager.prototype.setMaterialPairData = function(materialA, materi
 	this.mMaterialPairs[materialB][materialA].Elasticity = elasticity;
 };
 
-Bloob.MaterialManager.prototype.setMaterialPairFilterCallback = function(materialA, materialB, collisionCallback) {
+MaterialManager.prototype.setMaterialPairFilterCallback = function(materialA, materialB, collisionCallback) {
 	this.mMaterialPairs[materialB][materialA].Callback = collisionCallback;
 	this.mMaterialPairs[materialA][materialB].Callback = collisionCallback;
 };
 
-Bloob.MaterialManager.prototype.getMaterialCount = function() { return this.mMaterialCount; };
+MaterialManager.prototype.getMaterialCount = function() { return this.mMaterialCount; };
