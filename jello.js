@@ -579,7 +579,7 @@ Body.prototype._setDefaultValues = function() {
 	this.mDerivedOmega = 0.0;
 	this.mLastAngle = 0.0;
 	this.mAABB = new AABB();
-	this.mMaterial = Bloob.Material.Default;
+	this.mMaterial = Material.Default;
 	this.mIsStatic = false;
 	this.mKinematic = false;
 	this.mObjectTag = null;
@@ -603,7 +603,7 @@ Body.prototype._buildFromDefinition = function(bodyDefinition) {
 	this.mDerivedAngle = bodyDefinition.angleInRadians;
 	this.mLastAngle = this.mDerivedAngle;
 	this.mScale = bodyDefinition.scale;
-	this.mMaterial = Bloob.Material.Default;
+	this.mMaterial = Material.Default;
 	this.mPointCount = 0;
 	this.mInversePointCount = 0.0;
 
@@ -1191,7 +1191,7 @@ CollisionCallback.prototype.collisionFilter = function(bA, bodyApm, bodyB, bodyB
 	return true;
 };
 
-Bloob.Material = {
+Material = {
 	"Default": 0,
 	"Test1": 1,
 	"Test2": 2,
@@ -1225,7 +1225,7 @@ MaterialManager = function() {
 	this.mMaterialPairs[0] = this.mDefaultMatPair;
 	
 	this.mMaterialPairs = {};
-	this.addMaterial(Bloob.Material.Default);
+	this.addMaterial(Material.Default);
 };
 
 MaterialManager.prototype.getMaterialPair = function(materialA, materialB) {
@@ -3074,7 +3074,7 @@ QuadTree = function() {
 	window.ContactManager = ContactManager;
 	window.InternalSpring = InternalSpring;
 	window.CollisionCallback = CollisionCallback;
-	window.Bloob.Material = Bloob.Material;
+	window.Material = Material;
 	window.MaterialPair = MaterialPair;
 	window.MaterialManager = MaterialManager;
 	window.Particle = Particle;
@@ -3098,6 +3098,7 @@ QuadTree = function() {
 	window.Jello = {
 		InternalSpring: InternalSpring,
 		BodyBluePrint: BodyBluePrint,
-		BodyFactory: BodyFactory
+		BodyFactory: BodyFactory,
+		Material: Material
 	};
 })(window);

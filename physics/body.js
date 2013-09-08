@@ -36,7 +36,7 @@ Body.prototype._setDefaultValues = function() {
 	this.mDerivedOmega = 0.0;
 	this.mLastAngle = 0.0;
 	this.mAABB = new AABB();
-	this.mMaterial = Bloob.Material.Default;
+	this.mMaterial = Material.Default;
 	this.mIsStatic = false;
 	this.mKinematic = false;
 	this.mObjectTag = null;
@@ -60,7 +60,7 @@ Body.prototype._buildFromDefinition = function(bodyDefinition) {
 	this.mDerivedAngle = bodyDefinition.angleInRadians;
 	this.mLastAngle = this.mDerivedAngle;
 	this.mScale = bodyDefinition.scale;
-	this.mMaterial = Bloob.Material.Default;
+	this.mMaterial = Material.Default;
 	this.mPointCount = 0;
 	this.mInversePointCount = 0.0;
 

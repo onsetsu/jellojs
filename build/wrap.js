@@ -16,7 +16,7 @@
 	window.ContactManager = ContactManager;
 	window.InternalSpring = InternalSpring;
 	window.CollisionCallback = CollisionCallback;
-	window.Bloob.Material = Bloob.Material;
+	window.Material = Material;
 	window.MaterialPair = MaterialPair;
 	window.MaterialManager = MaterialManager;
 	window.Particle = Particle;
@@ -40,6 +40,7 @@
 	window.Jello = {
 		InternalSpring: InternalSpring,
 		BodyBluePrint: BodyBluePrint,
-		BodyFactory: BodyFactory
+		BodyFactory: BodyFactory,
+		Material: Material
 	};
 })(window);
