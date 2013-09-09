@@ -1,5 +1,5 @@
 var DEBUG = function() {
-	Scarlet.log.apply(Scarlet, arguments);
+	console.log.apply(console, arguments);
 };
 printf = DEBUG;
 
