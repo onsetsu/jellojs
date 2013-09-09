@@ -200,7 +200,6 @@ World.prototype.update = function(timePassed) { // float
 		// hard coded force on first Pointmass
 		//this.mBodies[i].pointMasses[0].Force = new Vector2(0.0,9.81);
 		//this.mBodies[i].pointMasses[0].Mass = 1;
-		//Scarlet.log(this.mBodies[i].pointMasses[0].Position);
 		
 		this.mBodies[i].integrate(timePassed);
 	}
