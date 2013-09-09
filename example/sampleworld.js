@@ -12,7 +12,9 @@ $("body").ready(function() {
 	    requestAnimationFrame(update);
 
 	    stats.update();
-		world.update(1/60);
+		world.update(1/60/3);
+		world.update(1/60/3);
+		world.update(1/60/3);
 		debugDraw.draw();
 	};
 	
