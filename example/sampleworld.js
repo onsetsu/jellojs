@@ -1,7 +1,7 @@
 window.onload = function() {
 	// prepare stats
 	var stats = new Stats();
-	$("body").prepend(stats.domElement);
+	document.body.insertBefore(stats.domElement, document.body.firstChild);
 
 	var world = initWorld();
 	var debugDraw = new DebugDraw(world);
