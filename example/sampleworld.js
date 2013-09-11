@@ -1,4 +1,4 @@
-$("body").ready(function() {
+window.onload = function() {
 	// prepare stats
 	var stats = new Stats();
 	$("body").prepend(stats.domElement);
@@ -19,7 +19,7 @@ $("body").ready(function() {
 	};
 	
 	update();
-});
+};
 
 var Utils = {
 	"fillArray": function(value, length) {
