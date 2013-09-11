@@ -21,16 +21,16 @@ window.onload = function() {
 	update();
 };
 
-var Utils = {
-	"fillArray": function(value, length) {
-		arr = [];
-		for(var i = 0; i < length; i++)
-			arr.push(value);
-		return arr;
-	}
-};
-
 var initWorld = function() {
+	var Utils = {
+		"fillArray": function(value, length) {
+			arr = [];
+			for(var i = 0; i < length; i++)
+				arr.push(value);
+			return arr;
+		}
+	};
+
 	var world = new Jello.World();
 
 	// GROUND SHAPE
