@@ -10,9 +10,11 @@ var DebugDraw = function(world, options) {
 	options.canvasWidth = options.canvaswidth || 500;
 	options.backgroundColor = options.backgroundColor || "black";
 	
+	// TODO: remove $
 	$("<canvas id='" + options.canvasId + "' width='" + options.canvasWidth + "' height='" + options.canvasHeight + "'></canvas>")
 		.appendTo($("body"))
-		.css("background-color", options.backgroundColor);
+		.css("background-color", options.backgroundColor)
+		;
 
 	this.canvas = document.getElementById(options.canvasId);
 	this.context = this.canvas.getContext('2d');
