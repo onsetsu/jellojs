@@ -1129,13 +1129,13 @@ Body.prototype.onContact = function(otherBody, contact) {
 };
 
 Body.prototype.onStartContact = function(otherBody, contact) {
-	for(var i = 0; i < this._onContactCallbacks.length; i++) {
+	for(var i = 0; i < this._onStartContactCallbacks.length; i++) {
 		this._onStartContactCallbacks[i].apply(this, arguments);
 	};
 };
 
 Body.prototype.onEndContact = function(otherBody) {
-	for(var i = 0; i < this._onContactCallbacks.length; i++) {
+	for(var i = 0; i < this._onEndContactCallbacks.length; i++) {
 		this._onEndContactCallbacks[i].apply(this, arguments);
 	};
 };
