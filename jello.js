@@ -3090,9 +3090,8 @@ var TriggerField = function(world, aabb) {
 	world.addTriggerField(this);
 };
 
-TriggerField.prototype.scale = function(scale) {
-	this.store.scale = scale;
-	return this;
+TriggerField.prototype.update = function() {
+	Scarlet.log("update");
 };
 
 TriggerField.prototype.debugDraw = function(debugDraw) {
@@ -3102,7 +3101,7 @@ TriggerField.prototype.debugDraw = function(debugDraw) {
 	
 	// define API for Jello
 	window.Jello = {
-		//AABB: AABB,
+		AABB: AABB,
 		TriggerField: TriggerField,
 		//BitMask: Bitmask,
 		BodyBluePrint: BodyBluePrint,
