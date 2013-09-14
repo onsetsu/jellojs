@@ -593,6 +593,7 @@ Body.prototype._setDefaultValues = function() {
 	this.externalForces = []; // array of force callbacks
 	
 	this.id = "body" + Body.nextBodyId++;
+	this._userData = {};
 };
 
 Body.prototype._buildFromDefinition = function(bodyDefinition) {
@@ -1087,6 +1088,16 @@ Body.prototype.setEntity = function(entity) {
 };
 Body.prototype.getEntity = function() { return this.entity; };
 
+Body.prototype.setUserData = function(key, data) {
+	this._userData[key] = data;
+	return this;
+};
+
+Body.prototype.getEntity = function(key) {
+	return this._userData[key];
+};
+
+
 /*
  * Drawing
  */
@@ -1464,6 +1475,8 @@ World.prototype.update = function(timePassed) { // float
 	this.mPenetrationCount = 0;
 	this.mCollisionList.length = 0;
 
+	// TODO: call beforeUpdate Callbacks
+	
 	// first, accumulate all forces acting on PointMasses.
 	for(var i = 0; i < this.mBodies.length; i++)
 	{
@@ -1583,6 +1596,8 @@ World.prototype.update = function(timePassed) { // float
 		if(this.mBodies[i].getIsStatic()) { continue; }
 		this.mBodies[i].dampenVelocity();
 	}
+	
+	// TODO: add afterUpdate callbacks
 	
 	// update rays
 	for (var i = 0; i < this.mRays.length; i++)
