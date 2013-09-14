@@ -1114,16 +1114,19 @@ Body.prototype.getUserData = function(key) {
  * contact listeners
  */
 // add callbacks
-Body.prototype.addOnContact = function(callback) {
+Body.prototype.onContact = function(callback) {
 	this._onContactCallbacks.push(callback);
+	return this;
 };
 
-Body.prototype.addOnStartContact = function(callback) {
+Body.prototype.onStartContact = function(callback) {
 	this._onStartContactCallbacks.push(callback);
+	return this;
 };
 
-Body.prototype.addOnEndContact = function(callback) {
+Body.prototype.onEndContact = function(callback) {
 	this._onEndContactCallbacks.push(callback);
+	return this;
 };
 
 // call callback (this reference points to one body)
@@ -1151,30 +1154,33 @@ Body.prototype.callOnEndContact = function(otherBody) {
 //add callbacks
 Body.prototype.withUpdate = function(callback) {
 	this._withUpdateCallbacks.push(callback);
+	return this;
 };
 
 Body.prototype.beforeUpdate = function(callback) {
 	this._beforeUpdateCallbacks.push(callback);
+	return this;
 };
 
 Body.prototype.afterUpdate = function(callback) {
 	this._afterUpdateCallbacks.push(callback);
+	return this;
 };
 
 // call callback (this reference points to one body)
-Body.prototype.callWithUpdate = function() {
+Body.prototype.callWithUpdate = function(timePassed) {
 	for(var i = 0; i < this._withUpdateCallbacks.length; i++) {
 		this._withUpdateCallbacks[i].apply(this, arguments);
 	};
 };
 
-Body.prototype.callBeforeUpdate = function() {
+Body.prototype.callBeforeUpdate = function(timePassed) {
 	for(var i = 0; i < this._beforeUpdateCallbacks.length; i++) {
 		this._beforeUpdateCallbacks[i].apply(this, arguments);
 	};
 };
 
-Body.prototype.callAfterUpdate = function() {
+Body.prototype.callAfterUpdate = function(timePassed) {
 	for(var i = 0; i < this._afterUpdateCallbacks.length; i++) {
 		this._afterUpdateCallbacks[i].apply(this, arguments);
 	};
@@ -1558,7 +1564,7 @@ World.prototype.update = function(timePassed) { // float
 	this.mCollisionList.length = 0;
 
 	for (var i = 0; i < this.mBodies.length; i++)
-		this.mBodies[i].callBeforeUpdate();
+		this.mBodies[i].callBeforeUpdate(timePassed);
 	
 	// first, accumulate all forces acting on PointMasses.
 	for(var i = 0; i < this.mBodies.length; i++)
@@ -1681,10 +1687,10 @@ World.prototype.update = function(timePassed) { // float
 	}
 
 	for (var i = 0; i < this.mBodies.length; i++)
-		this.mBodies[i].callWithUpdate();
+		this.mBodies[i].callWithUpdate(timePassed);
 
 	for (var i = 0; i < this.mBodies.length; i++)
-		this.mBodies[i].callAfterUpdate();
+		this.mBodies[i].callAfterUpdate(timePassed);
 	
 	// update rays
 	for (var i = 0; i < this.mRays.length; i++)
