@@ -198,7 +198,7 @@ World.prototype.update = function(timePassed) { // float
 	this.mCollisionList.length = 0;
 
 	for (var i = 0; i < this.mBodies.length; i++)
-		this.mBodies[i].callBeforeUpdate();
+		this.mBodies[i].callBeforeUpdate(timePassed);
 	
 	// first, accumulate all forces acting on PointMasses.
 	for(var i = 0; i < this.mBodies.length; i++)
@@ -321,10 +321,10 @@ World.prototype.update = function(timePassed) { // float
 	}
 
 	for (var i = 0; i < this.mBodies.length; i++)
-		this.mBodies[i].callWithUpdate();
+		this.mBodies[i].callWithUpdate(timePassed);
 
 	for (var i = 0; i < this.mBodies.length; i++)
-		this.mBodies[i].callAfterUpdate();
+		this.mBodies[i].callAfterUpdate(timePassed);
 	
 	// update rays
 	for (var i = 0; i < this.mRays.length; i++)
