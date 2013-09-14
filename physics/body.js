@@ -58,6 +58,11 @@ Body.prototype._setDefaultValues = function() {
 	this._onContactCallbacks = [];
 	this._onStartContactCallbacks = [];
 	this._onEndContactCallbacks = [];
+	
+	// callbacks called with every world update
+	this._withUpdateCallbacks = [];
+	this._beforeUpdateCallbacks = [];
+	this._afterUpdateCallbacks = [];
 };
 
 Body.prototype._buildFromDefinition = function(bodyDefinition) {
@@ -560,7 +565,7 @@ Body.prototype.setUserData = function(key, data) {
 	return this;
 };
 
-Body.prototype.getEntity = function(key) {
+Body.prototype.getUserData = function(key) {
 	return this._userData[key];
 };
 
@@ -581,19 +586,19 @@ Body.prototype.addOnEndContact = function(callback) {
 };
 
 // call callback (this reference points to one body)
-Body.prototype.onContact = function(otherBody, contact) {
+Body.prototype.callOnContact = function(otherBody, contact) {
 	for(var i = 0; i < this._onContactCallbacks.length; i++) {
 		this._onContactCallbacks[i].apply(this, arguments);
 	};
 };
 
-Body.prototype.onStartContact = function(otherBody, contact) {
+Body.prototype.callOnStartContact = function(otherBody, contact) {
 	for(var i = 0; i < this._onStartContactCallbacks.length; i++) {
 		this._onStartContactCallbacks[i].apply(this, arguments);
 	};
 };
 
-Body.prototype.onEndContact = function(otherBody) {
+Body.prototype.callOnEndContact = function(otherBody) {
 	for(var i = 0; i < this._onEndContactCallbacks.length; i++) {
 		this._onEndContactCallbacks[i].apply(this, arguments);
 	};
@@ -602,6 +607,37 @@ Body.prototype.onEndContact = function(otherBody) {
 /*
  * before/after update
  */
+//add callbacks
+Body.prototype.withUpdate = function(callback) {
+	this._withUpdateCallbacks.push(callback);
+};
+
+Body.prototype.beforeUpdate = function(callback) {
+	this._beforeUpdateCallbacks.push(callback);
+};
+
+Body.prototype.afterUpdate = function(callback) {
+	this._afterUpdateCallbacks.push(callback);
+};
+
+// call callback (this reference points to one body)
+Body.prototype.callWithUpdate = function() {
+	for(var i = 0; i < this._withUpdateCallbacks.length; i++) {
+		this._withUpdateCallbacks[i].apply(this, arguments);
+	};
+};
+
+Body.prototype.callBeforeUpdate = function() {
+	for(var i = 0; i < this._beforeUpdateCallbacks.length; i++) {
+		this._beforeUpdateCallbacks[i].apply(this, arguments);
+	};
+};
+
+Body.prototype.callAfterUpdate = function() {
+	for(var i = 0; i < this._afterUpdateCallbacks.length; i++) {
+		this._afterUpdateCallbacks[i].apply(this, arguments);
+	};
+};
 
 
 /*
@@ -639,13 +675,12 @@ Body.prototype.debugDrawPointMasses = function(debugDraw) {
 		debugDraw.drawRectangle(this.pointMasses[i].Position, 3);//i+1);
 };
 
-// TODO: implement
 Body.prototype.debugDrawMiddlePoint = function(debugDraw) {
-	//debugDraw.setOptions({
-	//	"color": "lightgreen",
-	//	"opacity": 1.0,
-	//	"lineWidth": 1
-	//});
+	debugDraw.setOptions({
+		"color": "lightgreen",
+		"opacity": 1.0,
+		"lineWidth": 1
+	});
 	
-	//debugDraw.drawRectangle(this.mDerivedPos, 5);//i+1);
+	debugDraw.drawRectangle(this.mDerivedPos, 5);//i+1);
 };

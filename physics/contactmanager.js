@@ -35,11 +35,11 @@ ContactManager.prototype.processCollisions = function(world) {
 	for(var keyA in this.contacts) {
 		for(var keyB in this.contacts[keyA]) {
 			var contact = this.contacts[keyA][keyB];
-			contact.bodyA.onContact(contact.bodyB, contact);
-			contact.bodyB.onContact(contact.bodyA, contact);
+			contact.bodyA.callOnContact(contact.bodyB, contact);
+			contact.bodyB.callOnContact(contact.bodyA, contact);
 			if(contact.isNew) {
-				contact.bodyA.onStartContact(contact.bodyB, contact);
-				contact.bodyB.onStartContact(contact.bodyA, contact);
+				contact.bodyA.callOnStartContact(contact.bodyB, contact);
+				contact.bodyB.callOnStartContact(contact.bodyA, contact);
 			};
 		};
 	};
@@ -48,13 +48,12 @@ ContactManager.prototype.processCollisions = function(world) {
 			if(typeof this.contacts[keyA] !== "undefined") {
 				if(typeof this.contacts[keyA][keyB] !== "undefined") {
 					var contact = lastContacts[keyA][keyB];
-					contact.bodyA.onEndContact(contact.bodyB, contact);
-					contact.bodyB.onEndContact(contact.bodyA, contact);
+					contact.bodyA.callOnEndContact(contact.bodyB, contact);
+					contact.bodyB.callOnEndContact(contact.bodyA, contact);
 				};
 			};
 		};
 	};
-	
 };
 
 ContactManager.prototype.addContact = function(bodyA, bodyB) {

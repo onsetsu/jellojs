@@ -599,6 +599,11 @@ Body.prototype._setDefaultValues = function() {
 	this._onContactCallbacks = [];
 	this._onStartContactCallbacks = [];
 	this._onEndContactCallbacks = [];
+	
+	// callbacks called with every world update
+	this._withUpdateCallbacks = [];
+	this._beforeUpdateCallbacks = [];
+	this._afterUpdateCallbacks = [];
 };
 
 Body.prototype._buildFromDefinition = function(bodyDefinition) {
@@ -1101,7 +1106,7 @@ Body.prototype.setUserData = function(key, data) {
 	return this;
 };
 
-Body.prototype.getEntity = function(key) {
+Body.prototype.getUserData = function(key) {
 	return this._userData[key];
 };
 
@@ -1122,19 +1127,19 @@ Body.prototype.addOnEndContact = function(callback) {
 };
 
 // call callback (this reference points to one body)
-Body.prototype.onContact = function(otherBody, contact) {
+Body.prototype.callOnContact = function(otherBody, contact) {
 	for(var i = 0; i < this._onContactCallbacks.length; i++) {
 		this._onContactCallbacks[i].apply(this, arguments);
 	};
 };
 
-Body.prototype.onStartContact = function(otherBody, contact) {
+Body.prototype.callOnStartContact = function(otherBody, contact) {
 	for(var i = 0; i < this._onStartContactCallbacks.length; i++) {
 		this._onStartContactCallbacks[i].apply(this, arguments);
 	};
 };
 
-Body.prototype.onEndContact = function(otherBody) {
+Body.prototype.callOnEndContact = function(otherBody) {
 	for(var i = 0; i < this._onEndContactCallbacks.length; i++) {
 		this._onEndContactCallbacks[i].apply(this, arguments);
 	};
@@ -1143,6 +1148,37 @@ Body.prototype.onEndContact = function(otherBody) {
 /*
  * before/after update
  */
+//add callbacks
+Body.prototype.withUpdate = function(callback) {
+	this._withUpdateCallbacks.push(callback);
+};
+
+Body.prototype.beforeUpdate = function(callback) {
+	this._beforeUpdateCallbacks.push(callback);
+};
+
+Body.prototype.afterUpdate = function(callback) {
+	this._afterUpdateCallbacks.push(callback);
+};
+
+// call callback (this reference points to one body)
+Body.prototype.callWithUpdate = function() {
+	for(var i = 0; i < this._withUpdateCallbacks.length; i++) {
+		this._withUpdateCallbacks[i].apply(this, arguments);
+	};
+};
+
+Body.prototype.callBeforeUpdate = function() {
+	for(var i = 0; i < this._beforeUpdateCallbacks.length; i++) {
+		this._beforeUpdateCallbacks[i].apply(this, arguments);
+	};
+};
+
+Body.prototype.callAfterUpdate = function() {
+	for(var i = 0; i < this._afterUpdateCallbacks.length; i++) {
+		this._afterUpdateCallbacks[i].apply(this, arguments);
+	};
+};
 
 
 /*
@@ -1182,13 +1218,13 @@ Body.prototype.debugDrawPointMasses = function(debugDraw) {
 
 // TODO: implement
 Body.prototype.debugDrawMiddlePoint = function(debugDraw) {
-	//debugDraw.setOptions({
-	//	"color": "lightgreen",
-	//	"opacity": 1.0,
-	//	"lineWidth": 1
-	//});
+	debugDraw.setOptions({
+		"color": "lightgreen",
+		"opacity": 1.0,
+		"lineWidth": 1
+	});
 	
-	//debugDraw.drawRectangle(this.mDerivedPos, 5);//i+1);
+	debugDraw.drawRectangle(this.mDerivedPos, 5);//i+1);
 };
 var BodyCollisionInfo = function() {
 	this.bodyA = 0; // Body
@@ -3109,11 +3145,11 @@ ContactManager.prototype.processCollisions = function(world) {
 	for(var keyA in this.contacts) {
 		for(var keyB in this.contacts[keyA]) {
 			var contact = this.contacts[keyA][keyB];
-			contact.bodyA.onContact(contact.bodyB, contact);
-			contact.bodyB.onContact(contact.bodyA, contact);
+			contact.bodyA.callOnContact(contact.bodyB, contact);
+			contact.bodyB.callOnContact(contact.bodyA, contact);
 			if(contact.isNew) {
-				contact.bodyA.onStartContact(contact.bodyB, contact);
-				contact.bodyB.onStartContact(contact.bodyA, contact);
+				contact.bodyA.callOnStartContact(contact.bodyB, contact);
+				contact.bodyB.callOnStartContact(contact.bodyA, contact);
 			};
 		};
 	};
@@ -3122,13 +3158,12 @@ ContactManager.prototype.processCollisions = function(world) {
 			if(typeof this.contacts[keyA] !== "undefined") {
 				if(typeof this.contacts[keyA][keyB] !== "undefined") {
 					var contact = lastContacts[keyA][keyB];
-					contact.bodyA.onEndContact(contact.bodyB, contact);
-					contact.bodyB.onEndContact(contact.bodyA, contact);
+					contact.bodyA.callOnEndContact(contact.bodyB, contact);
+					contact.bodyB.callOnEndContact(contact.bodyA, contact);
 				};
 			};
 		};
 	};
-	
 };
 
 ContactManager.prototype.addContact = function(bodyA, bodyB) {
