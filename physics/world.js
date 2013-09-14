@@ -705,6 +705,11 @@ World.prototype.debugDraw = function(debugDraw) {
 	for(var i = 0; i < this.mRays.length; i++) {
 		this.mRays[i].debugDraw(debugDraw);
 	};
+
+	// draw TriggerFields
+	for(var i = 0; i < this._triggerFields.length; i++) {
+		this._triggerFields[i].debugDraw(debugDraw);
+	};
 };
 
 
