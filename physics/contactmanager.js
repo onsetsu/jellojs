@@ -35,15 +35,11 @@ ContactManager.prototype.processCollisions = function(world) {
 	for(var keyA in this.contacts) {
 		for(var keyB in this.contacts[keyA]) {
 			var contact = this.contacts[keyA][keyB];
-			if(typeof contact.bodyA.entity !== "undefined")
-				contact.bodyA.entity.onContact(contact.bodyB, contact);
-			if(typeof contact.bodyB.entity !== "undefined")
-				contact.bodyB.entity.onContact(contact.bodyA, contact);
+			contact.bodyA.onContact(contact.bodyB, contact);
+			contact.bodyB.onContact(contact.bodyA, contact);
 			if(contact.isNew) {
-				if(typeof contact.bodyA.entity !== "undefined")
-					contact.bodyA.entity.onStartContact(contact.bodyB, contact);
-				if(typeof contact.bodyB.entity !== "undefined")
-					contact.bodyB.entity.onStartContact(contact.bodyA, contact);
+				contact.bodyA.onStartContact(contact.bodyB, contact);
+				contact.bodyB.onStartContact(contact.bodyA, contact);
 			};
 		};
 	};
@@ -52,10 +48,8 @@ ContactManager.prototype.processCollisions = function(world) {
 			if(typeof this.contacts[keyA] !== "undefined") {
 				if(typeof this.contacts[keyA][keyB] !== "undefined") {
 					var contact = lastContacts[keyA][keyB];
-					if(typeof contact.bodyA.entity !== "undefined")
-						contact.bodyA.entity.onEndContact(contact.bodyB, contact);
-					if(typeof contact.bodyB.entity !== "undefined")
-						contact.bodyB.entity.onEndContact(contact.bodyA, contact);
+					contact.bodyA.onEndContact(contact.bodyB, contact);
+					contact.bodyB.onEndContact(contact.bodyA, contact);
 				};
 			};
 		};

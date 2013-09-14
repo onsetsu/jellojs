@@ -567,6 +567,20 @@ Body.prototype.getEntity = function(key) {
 /*
  * contact listeners
  */
+// add callbacks
+Body.prototype.addOnContact = function(callback) {
+	this._onContactCallbacks.push(callback);
+};
+
+Body.prototype.addOnStartContact = function(callback) {
+	this._onStartContactCallbacks.push(callback);
+};
+
+Body.prototype.addOnEndContact = function(callback) {
+	this._onEndContactCallbacks.push(callback);
+};
+
+// call callback (this reference points to one body)
 Body.prototype.onContact = function(otherBody, contact) {
 	for(var i = 0; i < this._onContactCallbacks.length; i++) {
 		this._onContactCallbacks[i].apply(this, arguments);
@@ -583,19 +597,6 @@ Body.prototype.onEndContact = function(otherBody) {
 	for(var i = 0; i < this._onContactCallbacks.length; i++) {
 		this._onEndContactCallbacks[i].apply(this, arguments);
 	};
-};
-
-// callback (this reference points to one body)
-Body.prototype.addOnContact = function(callback) {
-	this._onContactCallbacks.push(callback);
-};
-
-Body.prototype.addOnStartContact = function(callback) {
-	this._onStartContactCallbacks.push(callback);
-};
-
-Body.prototype.addOnEndContact = function(callback) {
-	this._onEndContactCallbacks.push(callback);
 };
 
 /*
