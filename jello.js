@@ -594,6 +594,11 @@ Body.prototype._setDefaultValues = function() {
 	
 	this.id = "body" + Body.nextBodyId++;
 	this._userData = {};
+	
+	// contact listener callbacks
+	this._onContactCallbacks = [];
+	this._onStartContactCallbacks = [];
+	this._onEndContactCallbacks = [];
 };
 
 Body.prototype._buildFromDefinition = function(bodyDefinition) {
@@ -1088,6 +1093,9 @@ Body.prototype.setEntity = function(entity) {
 };
 Body.prototype.getEntity = function() { return this.entity; };
 
+/*
+ * user data
+ */
 Body.prototype.setUserData = function(key, data) {
 	this._userData[key] = data;
 	return this;
@@ -1096,6 +1104,44 @@ Body.prototype.setUserData = function(key, data) {
 Body.prototype.getEntity = function(key) {
 	return this._userData[key];
 };
+
+/*
+ * contact listeners
+ */
+Body.prototype.onContact = function(otherBody, contact) {
+	for(var i = 0; i < this._onContactCallbacks.length; i++) {
+		this._onContactCallbacks[i].apply(this, arguments);
+	};
+};
+
+Body.prototype.onStartContact = function(otherBody, contact) {
+	for(var i = 0; i < this._onContactCallbacks.length; i++) {
+		this._onStartContactCallbacks[i].apply(this, arguments);
+	};
+};
+
+Body.prototype.onEndContact = function(otherBody) {
+	for(var i = 0; i < this._onContactCallbacks.length; i++) {
+		this._onEndContactCallbacks[i].apply(this, arguments);
+	};
+};
+
+// callback (this reference points to one body)
+Body.prototype.addOnContact = function(callback) {
+	this._onContactCallbacks.push(callback);
+};
+
+Body.prototype.addOnStartContact = function(callback) {
+	this._onStartContactCallbacks.push(callback);
+};
+
+Body.prototype.addOnEndContact = function(callback) {
+	this._onEndContactCallbacks.push(callback);
+};
+
+/*
+ * before/after update
+ */
 
 
 /*
