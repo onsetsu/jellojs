@@ -1216,7 +1216,6 @@ Body.prototype.debugDrawPointMasses = function(debugDraw) {
 		debugDraw.drawRectangle(this.pointMasses[i].Position, 3);//i+1);
 };
 
-// TODO: implement
 Body.prototype.debugDrawMiddlePoint = function(debugDraw) {
 	debugDraw.setOptions({
 		"color": "lightgreen",
@@ -1558,7 +1557,8 @@ World.prototype.update = function(timePassed) { // float
 	this.mPenetrationCount = 0;
 	this.mCollisionList.length = 0;
 
-	// TODO: call beforeUpdate Callbacks
+	for (var i = 0; i < this.mBodies.length; i++)
+		this.mBodies[i].callBeforeUpdate();
 	
 	// first, accumulate all forces acting on PointMasses.
 	for(var i = 0; i < this.mBodies.length; i++)
@@ -1679,8 +1679,12 @@ World.prototype.update = function(timePassed) { // float
 		if(this.mBodies[i].getIsStatic()) { continue; }
 		this.mBodies[i].dampenVelocity();
 	}
-	
-	// TODO: add afterUpdate callbacks
+
+	for (var i = 0; i < this.mBodies.length; i++)
+		this.mBodies[i].callWithUpdate();
+
+	for (var i = 0; i < this.mBodies.length; i++)
+		this.mBodies[i].callAfterUpdate();
 	
 	// update rays
 	for (var i = 0; i < this.mRays.length; i++)
