@@ -5,6 +5,7 @@
 	// define API for Jello
 	window.Jello = {
 		//AABB: AABB,
+		ActionField: ActionField,
 		//BitMask: Bitmask,
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory,

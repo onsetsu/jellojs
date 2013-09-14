@@ -3054,11 +3054,15 @@ ContactManager.prototype.addContact = function(bodyA, bodyB) {
 	return this.contacts[bodyA.id][bodyB.id];
 };
 var QuadTree = function() {};
+var ActionField = function(aabb) {
+	this.aabb = aabb;
+};
 
 	
 	// define API for Jello
 	window.Jello = {
 		//AABB: AABB,
+		ActionField: ActionField,
 		//BitMask: Bitmask,
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory,
