@@ -1092,12 +1092,6 @@ Body.prototype.setIsKinematic = function(val) { this.mKinematic = val; }; // boo
 Body.prototype.getObjectTag = function() { return this.mObjectTag; };
 Body.prototype.setObjectTag = function(obj) { this.mObjectTag = obj; };
 
-Body.prototype.setEntity = function(entity) {
-	this.entity = entity;
-	entity.body = this;
-};
-Body.prototype.getEntity = function() { return this.entity; };
-
 /*
  * user data
  */
