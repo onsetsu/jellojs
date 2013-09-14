@@ -3054,15 +3054,25 @@ ContactManager.prototype.addContact = function(bodyA, bodyB) {
 	return this.contacts[bodyA.id][bodyB.id];
 };
 var QuadTree = function() {};
-var ActionField = function(aabb) {
+var TriggerField = function(world, aabb) {
 	this.aabb = aabb;
+	world.addTriggerField(this);
+};
+
+TriggerField.prototype.scale = function(scale) {
+	this.store.scale = scale;
+	return this;
+};
+
+TriggerField.prototype.debugDraw = function(debugDraw) {
+	this.aabb.debugDraw(debugDraw);
 };
 
 	
 	// define API for Jello
 	window.Jello = {
 		//AABB: AABB,
-		ActionField: ActionField,
+		TriggerField: TriggerField,
 		//BitMask: Bitmask,
 		BodyBluePrint: BodyBluePrint,
 		BodyFactory: BodyFactory,

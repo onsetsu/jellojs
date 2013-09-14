@@ -43,7 +43,7 @@ INPUT_FILES = [
 	
 	"quadtree.js",
 	
-	"actionfield.js"
+	"triggerfield.js"
 ]
 
 WRAPPER_FILE = "wrap.js"
