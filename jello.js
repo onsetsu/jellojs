@@ -1271,6 +1271,7 @@ MaterialManager.prototype.getMaterialCount = function() { return this.mMaterialC
 	this.mJoints = [];
 	this.mParticleCannons = [];
 	this.mRays = [];
+	this._triggerFields = [];
 	
 	this.mWorldLimits = new AABB(); // AABB
 	this.mWorldSize = new Vector2(0.0, 0.0); // Vector2
@@ -1422,6 +1423,30 @@ World.prototype.addRay = function(r) { // Joint
 	}
 };
 
+World.prototype.addTriggerField = function(field) { // TriggerField
+	DEBUG("addTriggerField:", field);
+
+	// check for already existing.
+	var exists = false; // bool
+	for(var i = 0; i < this._triggerFields.length; i++)
+		if(this._triggerFields[i] == field) {
+			exists = true;
+			break;
+		};
+	
+	// do not add an already existing fields
+	if (!exists) {
+		this._triggerFields.push(field);
+	}
+};
+
+World.prototype.removeTriggerField = function(field) { // TriggerField
+	var index = this._triggerFields.indexOf(field);
+	if (index !== - 1) {
+		this._triggerFields.splice( index, 1 );
+	}
+};
+
 World.prototype.getBody = function(index) { // int, returns Body
 	if ((index >= 0) && (index < this.mBodies.length))
 		return this.mBodies[index];
@@ -1563,6 +1588,12 @@ World.prototype.update = function(timePassed) { // float
 	for (var i = 0; i < this.mRays.length; i++)
 	{
 		this.mRays[i].update();
+	}
+	
+	// update trigger fields
+	for (var i = 0; i < this._triggerFields.length; i++)
+	{
+		this._triggerFields[i].update();
 	}
 	
 	// fire queued events
